@@ -12,18 +12,18 @@ class Calculator
         try
         {
             Console.Write("Enter the first number: ");
-            int num1 = Console.ReadLine(); //
+            int num1 = Console.ReadLine(); // Readline returns a string, so you need to cast to int
 
             Console.Write("Enter the second number: ");
-            int num2 = Console.ReadLine(); //
+            int num2 = Console.ReadLine(); // Readline returns a string, so you need to cast to int
 
             Console.WriteLine("Select operation (+, -, *, /): ");
-            char operation = Console.ReadLine()[0]; //
+            char operation = Console.ReadLine()[0]; //Instead of readline, use readkey
 
             CalculatorLogic calculatorLogic = new CalculatorLogic();
-            // 
+            // Too many white spaces
 
-            int result = calculatorLogic.PerformCalculation(num1, num2); // 
+            int result = calculatorLogic.PerformCalculation(num1, num2); // Needs the operator
 
             Console.WriteLine($"Result: {result}");
         }
@@ -52,7 +52,7 @@ class CalculatorLogic
                 result = num1 * num2;
                 break;
             case '/':
-                // *
+                // A better variable name than num1 and num2 should be used
                 if (num2 != 0)
                 {
                     result = num1 / num2;
@@ -60,7 +60,7 @@ class CalculatorLogic
                 else
                 {
                     Console.WriteLine("Error: Division by zero");
-                    //
+                    // An exception should be generated
                 }
                 break;
             default:
@@ -76,7 +76,7 @@ class CalculatorLogic
 
 class CalculatorUtility
 {
-    // * 
+    // All classes should not be in one file
     public string ConvertToBinary(int decimalNumber)
     {
         return Convert.ToString(decimalNumber, 10);
